@@ -1,0 +1,20 @@
+# FreeCAD Auto-backups
+*.FCBak
+*.FCBak*
+*.FCStd1
+*.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+
+# Intermediate Mesh Exports (regenerable via export_render_meshes.py)
+render_meshes/
+
+# OS / Editor files
+.DS_Store
+*.swp
+*~
