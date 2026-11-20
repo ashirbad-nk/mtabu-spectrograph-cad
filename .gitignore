@@ -11,6 +11,11 @@ __pycache__/
 .venv/
 env/
 
+# Raw vendor CAD archives and unpack directory
+cad_zip/
+cad_extracted/
+inspect_step.py
+
 # Intermediate Mesh Exports (regenerable via export_render_meshes.py)
 render_meshes/
 

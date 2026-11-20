@@ -63,30 +63,30 @@ This layout eliminates unnecessary macro relay lenses and secondary fold mirrors
 | **`M1_PiercedMirror`** | `(0.0, 0.0, -200.0)` | `(0, 0, +1)` | $2''$ Flat Mirror w/ $\varnothing 18\text{ mm}$ $45^\circ$ Bore |
 | **`C_FF_ASI6200MM`** | `(200.0, 0.0, -200.0)` | `(+1, 0, 0)` | Field Imager Sensor ($36 \times 24\text{ mm}$) |
 | **`FSM_PI_S335`** | `(0.0, 0.0, -90.0)` | `(0, 0, +1)` | PI S-335.2SHM2 Piezo Tip-Tilt Platform |
-| **`M_CAL_FlipMirror`** | `(0.0, 30.0, -90.0)` | `(0, +1, 0)` | Thorlabs MFF101/M Calibration Flipper |
-| **`BS_Pellicle_92_8`** | `(0.0, 55.0, -90.0)` | `(0, +1, 0)` | $\varnothing 25.4\text{ mm}$ 8R/92T Pellicle Beamsplitter |
-| **`C_GD_ASI290MM`** | `(0.0, 55.0, -55.0)` | `(0, 0, +1)` | Fine Guider Sensor ($5.6 \times 3.2\text{ mm}$) |
-| **`SLIT_150um`** | `(0.0, 90.0, -90.0)` | `(0, +1, 0)` | $150\ \mu\text{m} \times 3\text{ mm}$ Precision Air Slit |
-| **`L_COL_f200`** | `(0.0, 290.0, -90.0)` | `(0, +1, 0)` | $\varnothing 30\text{ mm}, f = 200\text{ mm}$ Collimator Doublet |
-| **`VPH_Grating_600lmm`** | `(0.0, 340.0, -90.0)` | `(0, +1, 0)` | $600\text{ l/mm}$ @ $600\text{ nm}$ VPH Grating |
-| **`L_CAM_f100`** | `(-16.0, 382.1, -90.0)` | `(-0.3551, +0.9348, 0)` | $\varnothing 50.8\text{ mm}, f = 100\text{ mm}$ Camera Doublet |
-| **`C_SPEC_ASI2600MM`** | `(-51.5, 475.5, -90.0)` | `(-0.3551, +0.9348, 0)` | Spectrograph Camera Sensor ($23.5 \times 15.7\text{ mm}$) |
+| **`CAL_Stage`** | `(0.0, 30.0, -90.0)` | `(0, +1, 0)` | In-House Linear Calibration Stage Envelope |
+| **`BS_Pellicle_92_8`** | `(0.0, 55.0, -90.0)` | `(0, +1, 0)` | $\varnothing 25.4\text{ mm}$ 8R/92T Pellicle Beamsplitter (Thorlabs BP108) |
+| **`C_GD_ASI290MM`** | `(0.0, 55.0, -55.0)` | `(0, 0, +1)` | Fine Guider Sensor ($5.6 \times 3.2\text{ mm}$, ZWO ASI290MM Mini) |
+| **`SLIT_150um`** | `(0.0, 90.0, -90.0)` | `(0, +1, 0)` | $150\ \mu\text{m} \times 3\text{ mm}$ Precision Mounted Slit (Thorlabs S150K) |
+| **`L_COL_f200`** | `(0.0, 290.0, -90.0)` | `(0, +1, 0)` | $\varnothing 25.4\text{ mm}, f = 200\text{ mm}$ Collimator Doublet (Thorlabs AC254-200-A) |
+| **`VPH_Grating_600lmm`** | `(0.0, 340.0, -90.0)` | `(0, +1, 0)` | $600\text{ l/mm}$ @ $600\text{ nm}$ VPH Grating in Thorlabs KM200PM/M |
+| **`L_CAM_f100`** | `(-16.0, 382.1, -90.0)` | `(-0.3551, +0.9348, 0)` | $\varnothing 50.8\text{ mm}, f = 100\text{ mm}$ Camera Doublet (Thorlabs AC508-100-A) |
+| **`C_SPEC_ASI2600MM`** | `(-51.5, 475.5, -90.0)` | `(-0.3551, +0.9348, 0)` | Spectrograph Camera Sensor ($23.5 \times 15.7\text{ mm}$, ZWO ASI2600MM Pro) |
 
 ---
 
-## 4. Master Bill of Materials (COTS)
+## 4. Master Bill of Materials (COTS & Custom)
 
 | ID | Component | Vendor & Part Number | Official Product Link |
 | :--- | :--- | :--- | :--- |
 | **M1** | $2''$ Protected-Ag Mirror Blank | Thorlabs `PF20-03-P01` | [Thorlabs PF20-03-P01](https://www.thorlabs.com/thorproduct.cfm?partnumber=PF20-03-P01) |
 | **C_FF** | Full-Frame Mono Camera (IMX455) | ZWO `ASI6200MM Pro` | [ZWO ASI6200MM Pro](https://www.zwoastro.com/product/asi6200mm-pro/) |
 | **FSM** | Piezo Tip/Tilt Platform w/ $1''$ Mirror | Physik Instrumente `S-335.2SHM2` | [PI S-335 Product Page](https://www.pi-usa.us/en/products/fast-steering-mirrors-fsm-and-piezo-tiptilt-platforms-for-active-optics/s-335-piezo-tip-tilt-platform-202300) |
-| **M_CAL** | Motorized Flip Mount + $1''$ Ag Mirror | Thorlabs `MFF101/M` + `PF10-03-P01` | [Thorlabs MFF101/M](https://www.thorlabs.com/thorproduct.cfm?partnumber=MFF101/M) |
+| **CAL** | Calibration Injection Linear Stage | Custom In-House Design | Reserved $40 \times 20 \times 30\text{ mm}$ envelope ahead of slit |
 | **BS** | $1''$ 8R/92T Pellicle Beamsplitter | Thorlabs `BP108` / Edmund `#39-480` | [Thorlabs BP108](https://www.thorlabs.com/thorproduct.cfm?partnumber=BP108) |
 | **C_GD** | Fine Guider Camera (IMX290) | ZWO `ASI290MM Mini` | [ZWO ASI290MM Mini](https://www.zwoastro.com/product/asi290mm-mini/) |
-| **SLIT** | $150\ \mu\text{m} \times 3\text{ mm}$ Mounted Slit | Thorlabs `S150R` | [Thorlabs S150R](https://www.thorlabs.com/thorproduct.cfm?partnumber=S150R) |
+| **SLIT** | $150\ \mu\text{m} \times 3\text{ mm}$ Mounted Slit | Thorlabs `S150K` | [Thorlabs S150K](https://www.thorlabs.com/thorproduct.cfm?partnumber=S150K) |
 | **FLT** | $\varnothing 50.8\text{ mm}$ GG400 Longpass Filter | Thorlabs `FGL400M` | [Thorlabs FGL400M](https://www.thorlabs.com/thorproduct.cfm?partnumber=FGL400M) |
-| **L_COL** | $\varnothing 30\text{ mm}, f = 200\text{ mm}$ Doublet | Thorlabs `AC300-200-A` | [Thorlabs AC300-200-A](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC300-200-A) |
+| **L_COL** | $\varnothing 25.4\text{ mm}, f = 200\text{ mm}$ Doublet | Thorlabs `AC254-200-A` | [Thorlabs AC254-200-A](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-A) |
 | **VPH** | $600\text{ l/mm}$ @ $600\text{ nm}$ VPH Grating | Wasatch Photonics `600 l/mm @ 600 nm` | [Wasatch Astronomy Gratings](https://wasatchphotonics.com/product-category/gratings/astronomy/) |
 | **M_VPH** | $2''$ Rotation Stage + Grating Mount | Thorlabs `PR01/M` + `KM200PM/M` | [Thorlabs PR01/M](https://www.thorlabs.com/thorproduct.cfm?partnumber=PR01/M) |
 | **L_CAM** | $\varnothing 50.8\text{ mm}, f = 100\text{ mm}$ Doublet | Thorlabs `AC508-100-A` | [Thorlabs AC508-100-A](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC508-100-A) |
