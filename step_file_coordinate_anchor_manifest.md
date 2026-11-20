@@ -60,9 +60,9 @@
       "local_datum_rule": "Sensor plane at local (0,0,0)"
     },
     {
-      "id": "SLIT_DualSlide_Assembly",
-      "description": "Motorized Dual-Slit Slide Assembly with NEMA stepper actuator and manual override at EXACT telescope f/13 focal plane: Slot 1 (active) = S75K (75 um slit, R ~ 1060); Slot 2 (standby) = S150K (150 um slit, R ~ 530)",
-      "step_file": "step_files/SLIT_DualSlide_Assembly.step",
+      "id": "SLIT_CFS1_M",
+      "description": "Thorlabs CFS1/M official manual sliding filter/slit mount holding S75K (75 um slit, R ~ 1060) and S150K (150 um slit, R ~ 530) at EXACT telescope f/13 focal plane",
+      "step_file": "step_files/CFS1_M-Step.step",
       "anchor_mm": [0.0, 90.0, -90.0],
       "optical_axis": [0.0, 1.0, 0.0],
       "local_datum_rule": "Slot 1 (75 um slit) center at local (0,0,0), sliding axis along local +X"
@@ -76,10 +76,18 @@
       "local_datum_rule": "Lens optical center at local (0,0,0)"
     },
     {
+      "id": "FGL475_OctaveFilter",
+      "description": "Thorlabs FGL475M 475 nm longpass octave order-sorting filter in LMR1/M mount in parallel collimated beam (zero focal shift)",
+      "step_file": "step_files/FGL475M_in_LMR1_M-Step.step",
+      "anchor_mm": [0.0, 315.0, -90.0],
+      "optical_axis": [0.0, 1.0, 0.0],
+      "local_datum_rule": "Filter optical center at local (0,0,0), normal along +Z"
+    },
+    {
       "id": "VPH_Grating_600lmm",
       "description": "Wasatch 600 l/mm @ 600 nm VPH transmission grating in Thorlabs KM200PM/M kinematic mount",
       "step_file": "step_files/KM200PM_M-Step.step",
-      "anchor_mm": [0.0, 340.0, -90.0],
+      "anchor_mm": [0.0, 375.0, -90.0],
       "surface_normal": [-0.180519, 0.983571, 0.0],
       "diffracted_beam_dir": [-0.355107, 0.934826, 0.0],
       "local_datum_rule": "Grating center at local (0,0,0)"
@@ -88,7 +96,7 @@
       "id": "L_CAM_f100",
       "description": "Thorlabs AC508-100-A 2-inch (50.8 mm) dia, f=100 mm camera doublet focusing dispersed spectrum",
       "step_file": "step_files/AC508-100-A-Step.step",
-      "anchor_mm": [-15.98, 382.07, -90.0],
+      "anchor_mm": [-15.98, 417.07, -90.0],
       "optical_axis": [-0.355107, 0.934826, 0.0],
       "local_datum_rule": "Lens optical center at local (0,0,0)"
     },
@@ -96,7 +104,7 @@
       "id": "C_SPEC_ASI2600MM",
       "description": "ZWO ASI2600MM Pro APS-C Cooled Mono Science Camera (official ZWO STEP model) recording spectrum",
       "step_file": "step_files/ASI2600MM_Pro.step",
-      "anchor_mm": [-51.49, 475.55, -90.0],
+      "anchor_mm": [-51.49, 510.55, -90.0],
       "sensor_facing_normal": [0.355107, -0.934826, 0.0],
       "local_datum_rule": "Sensor plane at local (0,0,0), front flange at Z=+17.5 mm"
     }

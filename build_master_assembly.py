@@ -76,7 +76,7 @@ def build_optical_beams(doc, grp_beams):
     p_cgd = App.Vector(0.0, 55.0, -55.0)        # 8% Guider camera focus
     p_slit = App.Vector(0.0, 90.0, -90.0)       # EXACT TELESCOPE FOCUS AT SLIT
     p_lcol = App.Vector(0.0, 290.0, -90.0)      # Collimator f = 200 mm
-    p_vph = App.Vector(0.0, 340.0, -90.0)       # 600 l/mm VPH grating (compacted to 50 mm past collimator)
+    p_vph = App.Vector(0.0, 375.0, -90.0)       # 600 l/mm VPH grating (85 mm past collimator, clear of FGL475)
 
     dev_rad = math.radians(20.8)
     d_spec = unit(App.Vector(-math.sin(dev_rad), math.cos(dev_rad), 0.0))
@@ -113,8 +113,8 @@ def build_optical_beams(doc, grp_beams):
     cone_spec_col = Part.makeCone(0.1, 7.7, 200.0, p_slit, App.Vector(0, 1, 0))
     add_part_feature(doc, grp_beams, "Beam_06_Slit_to_Collimator", cone_spec_col, (0.9, 0.6, 0.1), transparency=45)
 
-    # 7. Spectrograph: Collimated beam (L_COL Y=290 -> VPH Y=340)
-    cyl_vph = Part.makeCylinder(7.7, 50.0, p_lcol, App.Vector(0, 1, 0))
+    # 7. Spectrograph: Collimated beam (L_COL Y=290 -> VPH Y=375)
+    cyl_vph = Part.makeCylinder(7.7, 85.0, p_lcol, App.Vector(0, 1, 0))
     add_part_feature(doc, grp_beams, "Beam_07_Collimated_Pupil_to_VPH", cyl_vph, (0.9, 0.6, 0.1), transparency=45)
 
     # 8. Spectrograph: 20.8 deg diffracted beam (VPH -> L_CAM, 45 mm length)
@@ -200,6 +200,8 @@ def load_and_place_components(doc, grp_optics):
             color = (0.2, 0.75, 0.55)  # Holographic green/cyan
         elif "FSM" in st_id:
             color = (0.15, 0.35, 0.75)  # PI blue/steel
+        elif "Filter" in st_id or "FGL" in st_id:
+            color = (0.95, 0.55, 0.15)  # Amber / orange filter glass
         else:
             color = (0.3, 0.32, 0.35)  # Black anodized aluminum
 

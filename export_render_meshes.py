@@ -54,11 +54,11 @@ def export_meshes():
         p = os.path.join(OUTPUT_DIR, "cameras_zwo.stl")
         export_optimized_stl(comp_cams, p, lin_defl=0.4, ang_defl=0.3)
 
-    # 3. Optics (M1, FSM, Calibration Stage, BS, SLIT, L_COL, VPH, L_CAM)
+    # 3. Optics (M1, FSM, Calibration Stage, BS, SLIT, L_COL, FGL475, VPH, L_CAM)
     optic_keys = [
         "M1_PiercedMirror", "FSM_PI_S335", "M_CAL_FlipMirror", "CAL_LinearStage_Envelope",
-        "BS_Pellicle_92_8", "SLIT_DualSlide_Assembly", "SLIT_150um", "L_COL_f200",
-        "VPH_Grating_600lmm", "L_CAM_f100"
+        "BS_Pellicle_92_8", "SLIT_CFS1_M", "SLIT_DualSlide_Assembly", "SLIT_150um", "L_COL_f200",
+        "FGL475_OctaveFilter", "VPH_Grating_600lmm", "L_CAM_f100"
     ]
     optic_shapes = [placed_solids[k] for k in optic_keys if k in placed_solids]
     if optic_shapes:

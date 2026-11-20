@@ -118,7 +118,7 @@ def build_layout():
     p_cgd = (0.0, 55.0, -55.0)         # ASI290MM Mini guider camera at 8% focus
     p_slit = (0.0, 90.0, -90.0)        # Spectrograph slit at EXACT TELESCOPE FOCUS
     p_lcol = (0.0, 290.0, -90.0)       # Collimator doublet f = 200 mm
-    p_vph = (0.0, 340.0, -90.0)        # 600 l/mm VPH grating (compacted to 50 mm past collimator)
+    p_vph = (0.0, 375.0, -90.0)        # 600 l/mm VPH grating (85 mm past collimator, clear of FGL475)
 
     dev_rad = math.radians(20.8)
     d_spec = (-math.sin(dev_rad), math.cos(dev_rad), 0.0)
@@ -192,15 +192,19 @@ def build_layout():
     p_cgd_front = (p_cgd[0], p_cgd[1], p_cgd[2] - 8.5)
     solids["C_GD_ASI290MM"] = Part.makeCylinder(15.875, 61.0, vec(p_cgd_front), App.Vector(0.0, 0.0, 1.0))
 
-    # SLIT: Dual-Slit Slide Assembly at EXACT FOCUS (Y=90, Z=-90)
-    # Houses S75K (active at X=0) and S150K (standby at X=28) plus NEMA actuator
-    slit_base = Part.makeBox(80.0, 6.0, 34.0, App.Vector(-48.0, p_slit[1] - 8.0, p_slit[2] - 17.0))
-    slit_carrier = Part.makeBox(56.0, 6.0, 30.0, App.Vector(-14.0, p_slit[1] - 2.0, p_slit[2] - 15.0))
-    solids["SLIT_DualSlide_Assembly"] = slit_base.fuse(slit_carrier)
+    # SLIT: Thorlabs CFS1/M Manual Sliding Mount at EXACT FOCUS (Y=90, Z=-90)
+    # Houses S75K (active at X=0) and S150K (standby at X=28)
+    solids["SLIT_CFS1_M"] = Part.makeBox(137.5, 16.3, 51.1, App.Vector(-49.0, p_slit[1] - 8.1, p_slit[2] - 25.5))
 
     # L_COL: Spectrograph collimator f=200 mm at Y=290
     solids["L_COL_f200"] = make_disk_at(
         p_lcol, normal=(0.0, 1.0, 0.0), radius=15.0, thickness=8.0, center_on_front_face=False
+    )
+
+    # FGL475: Octave order-sorting filter in LMR1/M mount in collimated space at Y=315
+    p_fgl = (0.0, 315.0, -90.0)
+    solids["FGL475_OctaveFilter"] = make_disk_at(
+        p_fgl, normal=(0.0, 1.0, 0.0), radius=15.0, thickness=10.0, center_on_front_face=False
     )
 
     # VPH: 600 l/mm VPH Grating at Y=440
