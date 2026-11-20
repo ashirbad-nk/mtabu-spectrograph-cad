@@ -66,7 +66,7 @@ This layout eliminates unnecessary macro relay lenses and secondary fold mirrors
 | **`CAL_Stage`** | `(0.0, 30.0, -90.0)` | `(0, +1, 0)` | In-House Linear Calibration Stage Envelope |
 | **`BS_Pellicle_92_8`** | `(0.0, 55.0, -90.0)` | `(0, +1, 0)` | $\varnothing 25.4\text{ mm}$ 8R/92T Pellicle Beamsplitter (Thorlabs BP108) |
 | **`C_GD_ASI290MM`** | `(0.0, 55.0, -55.0)` | `(0, 0, +1)` | Fine Guider Sensor ($5.6 \times 3.2\text{ mm}$, ZWO ASI290MM Mini) |
-| **`SLIT_150um`** | `(0.0, 90.0, -90.0)` | `(0, +1, 0)` | $150\ \mu\text{m} \times 3\text{ mm}$ Precision Mounted Slit (Thorlabs S150K) |
+| **`SLIT_DualSlide_Assembly`** | `(0.0, 90.0, -90.0)` | `(0, +1, 0)` | Motorized Dual-Slit Slide Assembly: $75\ \mu\text{m}$ ($R \approx 1060$) on-axis & $150\ \mu\text{m}$ ($R \approx 530$) standby |
 | **`L_COL_f200`** | `(0.0, 290.0, -90.0)` | `(0, +1, 0)` | $\varnothing 25.4\text{ mm}, f = 200\text{ mm}$ Collimator Doublet (Thorlabs AC254-200-A) |
 | **`VPH_Grating_600lmm`** | `(0.0, 340.0, -90.0)` | `(0, +1, 0)` | $600\text{ l/mm}$ @ $600\text{ nm}$ VPH Grating in Thorlabs KM200PM/M |
 | **`L_CAM_f100`** | `(-16.0, 382.1, -90.0)` | `(-0.3551, +0.9348, 0)` | $\varnothing 50.8\text{ mm}, f = 100\text{ mm}$ Camera Doublet (Thorlabs AC508-100-A) |

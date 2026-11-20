@@ -314,6 +314,13 @@ def build_assembly():
     compound.exportStep(step_export_path)
     print(f"Exported Master Assembly STEP: {step_export_path} ({os.path.getsize(step_export_path):,} bytes)\n")
 
+    # Export combined STEP file with 3D optical beam rays
+    beam_shapes = [obj.Shape for obj in grp_beams.Group if hasattr(obj, "Shape")]
+    compound_with_rays = Part.makeCompound(all_shapes + beam_shapes)
+    step_rays_path = "MtAbu_1p2m_Spectrograph_Guider_with_Rays.step"
+    compound_with_rays.exportStep(step_rays_path)
+    print(f"Exported Master Assembly with Rays STEP: {step_rays_path} ({os.path.getsize(step_rays_path):,} bytes)\n")
+
     return doc, collisions
 
 

@@ -192,10 +192,11 @@ def build_layout():
     p_cgd_front = (p_cgd[0], p_cgd[1], p_cgd[2] - 8.5)
     solids["C_GD_ASI290MM"] = Part.makeCylinder(15.875, 61.0, vec(p_cgd_front), App.Vector(0.0, 0.0, 1.0))
 
-    # SLIT: 150 um precision mounted slit at EXACT FOCUS (Y=90, Z=-90)
-    solids["SLIT_150um"] = make_disk_at(
-        p_slit, normal=(0.0, 1.0, 0.0), radius=12.7, thickness=6.0, center_on_front_face=False
-    )
+    # SLIT: Dual-Slit Slide Assembly at EXACT FOCUS (Y=90, Z=-90)
+    # Houses S75K (active at X=0) and S150K (standby at X=28) plus NEMA actuator
+    slit_base = Part.makeBox(80.0, 6.0, 34.0, App.Vector(-48.0, p_slit[1] - 8.0, p_slit[2] - 17.0))
+    slit_carrier = Part.makeBox(56.0, 6.0, 30.0, App.Vector(-14.0, p_slit[1] - 2.0, p_slit[2] - 15.0))
+    solids["SLIT_DualSlide_Assembly"] = slit_base.fuse(slit_carrier)
 
     # L_COL: Spectrograph collimator f=200 mm at Y=290
     solids["L_COL_f200"] = make_disk_at(

@@ -37,7 +37,7 @@
     },
     {
       "id": "CAL_LinearStage_Envelope",
-      "description": "Custom in-house linear translation stage reserved envelope at (0,25,-90) mm for calibration lamp / mirror insertion (replacing expensive MFF101/M flipper)",
+      "description": "Custom in-house linear translation stage envelope at (0,25,-90) mm holding FGL475 order-sorting filter and calibration lamp injection mirror",
       "step_file": "step_files/CAL_LinearStage_Envelope.step",
       "anchor_mm": [0.0, 25.0, -90.0],
       "optical_axis": [0.0, 1.0, 0.0],
@@ -60,12 +60,12 @@
       "local_datum_rule": "Sensor plane at local (0,0,0)"
     },
     {
-      "id": "SLIT_150um",
-      "description": "Thorlabs S150K 150 um x 3 mm mounted slit placed at the EXACT telescope f/13 focal plane (replaces discontinued S150R)",
-      "step_file": "step_files/S150K-Step.step",
+      "id": "SLIT_DualSlide_Assembly",
+      "description": "Motorized Dual-Slit Slide Assembly with NEMA stepper actuator and manual override at EXACT telescope f/13 focal plane: Slot 1 (active) = S75K (75 um slit, R ~ 1060); Slot 2 (standby) = S150K (150 um slit, R ~ 530)",
+      "step_file": "step_files/SLIT_DualSlide_Assembly.step",
       "anchor_mm": [0.0, 90.0, -90.0],
       "optical_axis": [0.0, 1.0, 0.0],
-      "local_datum_rule": "Slit aperture center at local (0,0,0)"
+      "local_datum_rule": "Slot 1 (75 um slit) center at local (0,0,0), sliding axis along local +X"
     },
     {
       "id": "L_COL_f200",

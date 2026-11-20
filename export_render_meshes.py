@@ -57,7 +57,7 @@ def export_meshes():
     # 3. Optics (M1, FSM, Calibration Stage, BS, SLIT, L_COL, VPH, L_CAM)
     optic_keys = [
         "M1_PiercedMirror", "FSM_PI_S335", "M_CAL_FlipMirror", "CAL_LinearStage_Envelope",
-        "BS_Pellicle_92_8", "SLIT_150um", "L_COL_f200",
+        "BS_Pellicle_92_8", "SLIT_DualSlide_Assembly", "SLIT_150um", "L_COL_f200",
         "VPH_Grating_600lmm", "L_CAM_f100"
     ]
     optic_shapes = [placed_solids[k] for k in optic_keys if k in placed_solids]
