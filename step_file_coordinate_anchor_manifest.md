@@ -37,11 +37,11 @@
     },
     {
       "id": "CAL_LinearStage_Envelope",
-      "description": "Custom in-house linear translation stage reserved envelope at (0,30,-90) mm for calibration lamp / mirror insertion (replacing expensive MFF101/M flipper)",
+      "description": "Custom in-house linear translation stage reserved envelope at (0,25,-90) mm for calibration lamp / mirror insertion (replacing expensive MFF101/M flipper)",
       "step_file": "step_files/CAL_LinearStage_Envelope.step",
-      "anchor_mm": [0.0, 30.0, -90.0],
+      "anchor_mm": [0.0, 25.0, -90.0],
       "optical_axis": [0.0, 1.0, 0.0],
-      "local_datum_rule": "Carriage center at (0,30,-90), 40x20x30 mm space reserved"
+      "local_datum_rule": "Carriage center at (0,25,-90), 30x24x8 mm space reserved"
     },
     {
       "id": "BS_Pellicle_92_8",

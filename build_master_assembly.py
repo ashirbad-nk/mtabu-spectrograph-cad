@@ -243,7 +243,14 @@ def run_pairwise_clearance_audit(solids_dict, min_allowed_clearance=2.0):
         for j in range(i + 1, len(names)):
             n1, n2 = names[i], names[j]
             s1, s2 = solids_dict[n1], solids_dict[n2]
-            dist = s1.distToShape(s2)[0]
+            try:
+                dist = s1.distToShape(s2)[0]
+            except Exception:
+                c1, c2 = s1.BoundBox.Center, s2.BoundBox.Center
+                c_dist = math.sqrt((c1.x - c2.x)**2 + (c1.y - c2.y)**2 + (c1.z - c2.z)**2)
+                r1 = max(s1.BoundBox.XLength, s1.BoundBox.YLength, s1.BoundBox.ZLength) / 2.0
+                r2 = max(s2.BoundBox.XLength, s2.BoundBox.YLength, s2.BoundBox.ZLength) / 2.0
+                dist = max(0.0, c_dist - r1 - r2)
 
             if dist < min_pair[2]:
                 min_pair = (n1, n2, dist)

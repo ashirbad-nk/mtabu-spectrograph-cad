@@ -80,19 +80,29 @@ if os.path.exists(zwo_src):
     bb = s.BoundBox
     print(f"    Sensor at (0,0,0); Front flange at Z={bb.ZMax:.1f} mm, Rear face at Z={bb.ZMin:.1f} mm")
 
-print("--- 7. Building Thorlabs AC254-200-A (25.4mm, f=200mm Doublet) ---")
-# Collimator lens: 25.4mm OD, 6.0mm center thickness, centered at origin
-d_col = Part.makeCylinder(12.7, 6.0, App.Vector(0, 0, -3.0), App.Vector(0, 0, 1))
-col_out = os.path.join(STEP_OUT_DIR, "AC254-200-A-Step.step")
-d_col.exportStep(col_out)
-# Also keep AC300-200-A-Step.step alias
-d_col.exportStep(os.path.join(STEP_OUT_DIR, "AC300-200-A-Step.step"))
-print(f"  Exported {col_out}")
+print("--- 7. Normalizing Thorlabs AC254-200-A (25.4mm, f=200mm Doublet) from Official STEP ---")
+ac254_src = os.path.join(EXTRACTED_DIR, "AC254-200-A-Step.step")
+if os.path.exists(ac254_src):
+    s = Part.read(ac254_src)
+    # Center Z to 0.0 (original Z center is -0.136 mm)
+    s.translate(App.Vector(0.0, 0.0, -s.BoundBox.Center.z))
+    col_out = os.path.join(STEP_OUT_DIR, "AC254-200-A-Step.step")
+    s.exportStep(col_out)
+    s.exportStep(os.path.join(STEP_OUT_DIR, "AC300-200-A-Step.step"))
+    print(f"  Exported {col_out}: BoundBox dim {s.BoundBox.XLength:.1f}x{s.BoundBox.YLength:.1f}x{s.BoundBox.ZLength:.1f}")
+else:
+    # Fallback parametric cylinder if file not found
+    d_col = Part.makeCylinder(12.7, 7.0, App.Vector(0, 0, -3.5), App.Vector(0, 0, 1))
+    col_out = os.path.join(STEP_OUT_DIR, "AC254-200-A-Step.step")
+    d_col.exportStep(col_out)
+    d_col.exportStep(os.path.join(STEP_OUT_DIR, "AC300-200-A-Step.step"))
+    print(f"  Exported parametric fallback {col_out}")
 
 print("--- 8. Building Linear Stage Reserved Envelope (In-house calibration slide) ---")
 # User requested: "filter flipper too expensive will design our linear stage, leave space."
-# Reserve 40mm (X) x 25mm (Y) x 30mm (Z) envelope for linear slide carriage
-stage_env = Part.makeBox(40.0, 20.0, 30.0, App.Vector(-20.0, -10.0, -15.0))
+# Reserve 30mm (X) x 24mm (height Z) x 8mm (optical axis Y) envelope for linear slide carriage
+# Local optical axis is Z (so local Z = 8mm, thickness along beam), local X = 30mm, local Y = 24mm
+stage_env = Part.makeBox(30.0, 24.0, 8.0, App.Vector(-15.0, -12.0, -4.0))
 stage_out = os.path.join(STEP_OUT_DIR, "CAL_LinearStage_Envelope.step")
 stage_env.exportStep(stage_out)
 print(f"  Exported {stage_out}")
